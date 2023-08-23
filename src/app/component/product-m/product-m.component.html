@@ -1,13 +1,25 @@
-<!--<h1>Fetchinng data from BE</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add product</title>
+</head>
+<body>
 
+  <h2>Add product :</h2>
+  <form [formGroup]="myform" (ngSubmit)="onAddproduct()">
+    <label for="nom">Product name:</label>
+    <input type="text" formControlName="nom">
 
-<ul>
-    <li *ngFor="let item of myData$ | async">
-        {{item.nom}}
-    </li>
-</ul>-->
+    <label for="prix">Price:</label>
+    <input type="number" formControlName="prix">
 
-<section id="product">
+    <label for="qts">Stock:</label>
+    <input type="number" formControlName="qts">
+    <input type="submit" value="Add">
+  </form>
+<br><br><br>
+  <section id="product">
+    <h2>Product management :</h2>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -19,8 +31,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{product.nom}}</h5>
                                     <p class="card-text"><span
-                                            class="text-danger fw-semibold me-2">${{product.prix}}</span><del> ${{product.prix}}</del>
-                                        <span class="text-success ms-2">35% Off</span></p>
+                                            class="text-danger fw-semibold me-2">${{product.prix}}</span>
+                                        
                                         <p class="card-text">
                                             <span class="text-danger fw-semibold me-2" *ngIf="product.qts === 0">Out of Stock</span>
                                             <span class="text-success fw-semibold me-2" *ngIf="product.qts > 0">{{ product.qts }} Available</span>
@@ -28,14 +40,10 @@
                                         
                                     <div class="row">
                                         <div class="col-6">
-                                            <i class="fa fa-star" style="color: #f1f50f;"></i> <span class="text-muted"></span>
-                                            <i class="fa fa-star" style="color: #f1f50f;"></i> <span class="text-muted"></span>
-                                            <i class="fa fa-star" style="color: #f1f50f;"></i> <span class="text-muted"></span>
-                                            <i class="fa fa-star" style="color: #f1f50f;"></i> <span class="text-muted"></span>
-                                            <i class="fa fa-star-half-o" style="color: #f1f50f;"></i> <span class="text-muted">(21)</span>
+                                          <button class="btn btn-sm btn-success" > UPDATE</button>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <button class="btn btn-sm btn-success" (click)="addItemToCart(product.id)" > Add To Cart</button>
+                                            <button class="btn btn-sm btn-danger" (click)="deleteProduct(product.id)"> DELETE</button>
                                         </div>
                                     </div>
                                    
@@ -49,3 +57,5 @@
     </div>
 
 </section>
+</body>
+</html>

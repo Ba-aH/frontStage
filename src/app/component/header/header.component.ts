@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
     this.user = JSON.parse(this.user);
     console.log(this.user);
   }
+  logout(){
+    localStorage.removeItem("currentUser");
+    location.reload();
+  }
   
 
 }

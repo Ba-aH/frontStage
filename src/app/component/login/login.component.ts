@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-  
+          location.reload();
         },
         error => {
           console.error('Error occurred during login:', error);

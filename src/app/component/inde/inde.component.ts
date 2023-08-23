@@ -31,7 +31,7 @@ export class IndeComponent implements OnInit {
       .getData()
       .subscribe((data) => {this.myData = data
       for (let i=0 ;i<this.myData.length;i++){
-      this.myData[i].piece_image="../../../../../Back"+this.myData[i].piece_image
+      this.myData[i].piece_image="./../../../../Back"+this.myData[i].piece_image
       }
       });
       const cat = localStorage.getItem("currentUser");
